@@ -16,11 +16,13 @@ const Week = (props) => {
           return (
             <ItemStyle key={index}>
               {list}
-              <Circle></Circle>
-              <Circle></Circle>
-              <Circle></Circle>
-              <Circle></Circle>
-              <Circle></Circle>
+              <CircleWrap>
+                <Circle></Circle>
+                <Circle></Circle>
+                <Circle></Circle>
+                <Circle></Circle>
+                <Circle></Circle>
+              </CircleWrap>
               <Button onClick={() => {
               const day = my_lists[index]
               // console.log(day)
@@ -48,6 +50,12 @@ const ItemStyle = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  font-size: 20px;
+`;
+
+const CircleWrap = styled.div`
+  display: flex;
+  margin-left: 7px;
 `;
 
 const Circle = styled.div`

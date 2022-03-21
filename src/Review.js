@@ -9,7 +9,7 @@ const Review = (props) => {
   let history = useHistory();
   return (
     <div>
-      <h2><Day>{day.day}</Day>  평점 남기기</h2>
+      <h2><Day>{day.day}요일</Day>  평점 남기기</h2>
       <CircleWrap>
         <Circle></Circle>
         <Circle></Circle>
