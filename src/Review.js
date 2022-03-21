@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from  'styled-components';
 
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 const Review = (props) => {
-
+  // const my_lists = props.list;
+  const day = useParams();
   let history = useHistory();
   return (
     <div>
-      <h2>평점남기기</h2>
+      <h2>{day.day}평점 남기기</h2>
       <Button onClick={() => {
         history.push("/");
       }}>평점 남기기</Button>

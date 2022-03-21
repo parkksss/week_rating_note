@@ -1,14 +1,15 @@
 import React from "react"; 
 import logo from './logo.svg';
 import styled from "styled-components";
-import { Route } from 'react-router-dom';
+import { Route, useParams } from 'react-router-dom';
 
 import Week from "./Week"
 import Review from "./Review"
 
 function App() {
 
-  const list = ['월', '화', '수', '목', '금', '토', '일'];
+
+  const list = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'];
   // const [list, setList] = React.useState(['월', '화', '수', '목', '금', '토', '일']);
 
   // const addBucketList = () => {
@@ -21,8 +22,8 @@ function App() {
         <Route path="/" exact>
           <Week list={list}/>
         </Route>
-        <Route path="/review">
-          <Review/>
+        <Route path="/review/:day">
+          <Review list={list} />
         </Route>
       </Container>
     </AppWrap>

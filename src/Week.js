@@ -17,7 +17,9 @@ const Week = (props) => {
             <ItemStyle key={index}>
               {list}
               <Button onClick={() => {
-              history.push("/Review");
+              const day = my_lists[index]
+              // console.log(day)
+              history.push("/Review/"+day);
             }}></Button>
             </ItemStyle>
           );
