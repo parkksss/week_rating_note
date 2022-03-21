@@ -9,13 +9,43 @@ const Review = (props) => {
   let history = useHistory();
   return (
     <div>
-      <h2>{day.day}평점 남기기</h2>
+      <h2><Day>{day.day}</Day>  평점 남기기</h2>
+      <CircleWrap>
+        <Circle></Circle>
+        <Circle></Circle>
+        <Circle></Circle>
+        <Circle></Circle>
+        <Circle></Circle>
+      </CircleWrap>
       <Button onClick={() => {
         history.push("/");
       }}>평점 남기기</Button>
     </div>
   );
 };
+
+const Day = styled.span`
+  background-color: orange;
+  border-radius: 5px;
+  padding: 3px;
+  color: white;
+`;
+
+const CircleWrap = styled.div`
+  display: flex;
+  margin-bottom: 30x;
+  padding-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Circle = styled.div`
+  width: 30px; 
+  height: 30px;
+  background-color: #ddd;
+  margin: 5px;
+  border-radius: 50%;
+`;
 
 const Button = styled.button`
   width: 300px; 

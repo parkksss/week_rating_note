@@ -16,6 +16,11 @@ const Week = (props) => {
           return (
             <ItemStyle key={index}>
               {list}
+              <Circle></Circle>
+              <Circle></Circle>
+              <Circle></Circle>
+              <Circle></Circle>
+              <Circle></Circle>
               <Button onClick={() => {
               const day = my_lists[index]
               // console.log(day)
@@ -39,23 +44,28 @@ const ListStyle = styled.div`
 
 const ItemStyle = styled.div`
   display: flex;
-  padding: 16px;
+  padding: 10px;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  // margin: 8px;
-  // background-color: aliceblue;
 `;
 
+const Circle = styled.div`
+  width: 30px; 
+  height: 30px;
+  background-color: #ddd;
+  margin: 5px;
+  border-radius: 50%;
+`;
 
 const Button = styled.div`
   width: 0; 
   height: 0;
-  margin-left: 10px;
+  margin-left: 5px;
   border-bottom: 15px solid transparent;
   border-top: 15px solid transparent;
   border-left: 30px solid #303030;
-  border-right: 30px solid transparent;
+  // border-right: 0px solid transparent;
 `;
 
 

@@ -38,7 +38,7 @@ const AppWrap = styled.div`
 
 const Container = styled.div`
   max-width: 350px;
-  width: 50vw;
+  width: 60vw;
   height: 65vh;
   margin: auto;
   padding: 16px;
