@@ -5,7 +5,6 @@ import { Route } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
 const Week = (props) => {
-  // console.log(props.score)
   const my_lists = props.list;
   let history = useHistory();
 
@@ -26,7 +25,6 @@ const Week = (props) => {
               </CircleWrap>
               <Button onClick={() => {
               const day = my_lists[index]
-              // console.log(day)
               history.push("/Review/"+day);
             }}></Button>
             </ItemStyle>

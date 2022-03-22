@@ -8,13 +8,7 @@ import Review from "./Review"
 
 function App() {
 
-
   const list = ['월', '화', '수', '목', '금', '토', '일'];
-  // const [list, setList] = React.useState(['월', '화', '수', '목', '금', '토', '일']);
-
-  // const addBucketList = () => {
-  //   setList([...list]);
-  // }
 
   return (
     <AppWrap className="App">

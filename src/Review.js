@@ -4,15 +4,14 @@ import styled from  'styled-components';
 
 import { useHistory, useParams } from "react-router-dom";
 
-
 const Review = (props) => {
   
   let history = useHistory();
   const day = useParams();
-  const ARRAY = [0, 1, 2, 3, 4];
+  const score = [0, 1, 2, 3, 4];
   const [clicked, setClicked] = useState([false, false, false, false, false]);
   
-  const handleStarClick = index => {
+  const handleScoreClick = index => {
     let clickStates = [...clicked];
     for (let i = 0; i < 5; i++) {
       clickStates[i] = i <= index ? true : false;
@@ -24,12 +23,11 @@ const Review = (props) => {
     <div>
       <h2><Day>{day.day}요일</Day>  평점 남기기</h2>
       <CircleWrap>
-        {ARRAY.map((el, idx) => {
+        {score.map((el, idx) => {
           return (<Circle 
                     key={idx} 
                     completed={clicked[el]}
-                    onClick={() => handleStarClick(el)}>
-              </Circle>
+                    onClick={() => handleScoreClick(el)}></Circle>
           );
         })}
       </CircleWrap>
