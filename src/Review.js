@@ -1,21 +1,37 @@
-import React from 'react';
+// import React from 'react';
+import React, { useState } from 'react';
 import styled from  'styled-components';
 
 import { useHistory, useParams } from "react-router-dom";
 
+
 const Review = (props) => {
-  // const my_lists = props.list;
-  const day = useParams();
+  
   let history = useHistory();
+  const day = useParams();
+  const ARRAY = [0, 1, 2, 3, 4];
+  const [clicked, setClicked] = useState([false, false, false, false, false]);
+  
+  const handleStarClick = index => {
+    let clickStates = [...clicked];
+    for (let i = 0; i < 5; i++) {
+      clickStates[i] = i <= index ? true : false;
+    }
+    setClicked(clickStates);
+  };
+
   return (
     <div>
       <h2><Day>{day.day}요일</Day>  평점 남기기</h2>
       <CircleWrap>
-        <Circle></Circle>
-        <Circle></Circle>
-        <Circle></Circle>
-        <Circle></Circle>
-        <Circle></Circle>
+        {ARRAY.map((el, idx) => {
+          return (<Circle 
+                    key={idx} 
+                    completed={clicked[el]}
+                    onClick={() => handleStarClick(el)}>
+              </Circle>
+          );
+        })}
       </CircleWrap>
       <Button onClick={() => {
         history.push("/");
@@ -42,9 +58,12 @@ const CircleWrap = styled.div`
 const Circle = styled.div`
   width: 30px; 
   height: 30px;
-  background-color: #ddd;
+  background-color: ${(props) => (props.completed ? "orange" : "#ddd")};
   margin: 5px;
   border-radius: 50%;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 const Button = styled.button`
@@ -56,6 +75,9 @@ const Button = styled.button`
   border: 1px solid #303030;
   border-radius: 5px;
   font-size: 15px;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 export default Review;

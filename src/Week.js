@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
 const Week = (props) => {
+  // console.log(props.score)
   const my_lists = props.list;
   let history = useHistory();
 
@@ -74,6 +75,9 @@ const Button = styled.div`
   border-top: 15px solid transparent;
   border-left: 30px solid #303030;
   // border-right: 0px solid transparent;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 
 

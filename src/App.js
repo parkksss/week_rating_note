@@ -23,7 +23,7 @@ function App() {
           <Week list={list}/>
         </Route>
         <Route path="/review/:day">
-          <Review list={list} />
+          <Review list={list}/>
         </Route>
       </Container>
     </AppWrap>
