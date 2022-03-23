@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Route } from 'react-router-dom';
 
@@ -6,8 +6,26 @@ import { useHistory } from "react-router-dom";
 
 const Week = (props) => {
   const my_lists = props.list;
+  // const my_states = props.state;
+
+  const score = [0, 1, 2, 3, 4];
   let history = useHistory();
 
+  const [state, setState] = useState(() => {
+    let initialState = [1, 1, 1, 1, 1, 1, 1];
+    for (let i = 0; i < initialState.length; i++) {
+      initialState[i] = Math.floor(Math.random() * 5);
+    }
+    const states = initialState.map((item) => {
+      let check = [false, false, false, false, false];
+      for (let i = 0; i < 5; i++) {
+        check[i] = i <= item ? true : false;
+      }
+      return check;
+    });
+    return states;
+  });
+  
   return (
     <div>
       <h2>이번주 어땠나요?</h2>
@@ -17,11 +35,13 @@ const Week = (props) => {
             <ItemStyle key={index}>
               {list}
               <CircleWrap>
-                <Circle></Circle>
-                <Circle></Circle>
-                <Circle></Circle>
-                <Circle></Circle>
-                <Circle></Circle>
+                {score.map((el, idx) => { 
+                  console.log(el, state[index])
+                  return (<Circle 
+                            key={idx} 
+                            completed={state[index][idx]}></Circle>
+                  );
+                })}
               </CircleWrap>
               <Button onClick={() => {
               const day = my_lists[index]
@@ -60,7 +80,7 @@ const CircleWrap = styled.div`
 const Circle = styled.div`
   width: 30px; 
   height: 30px;
-  background-color: #ddd;
+  background-color: ${(props) => (props.completed ? "orange" : "#ddd")};
   margin: 5px;
   border-radius: 50%;
 `;
